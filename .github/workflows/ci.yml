@@ -1,0 +1,45 @@
+name: Continuous integration
+
+on:
+  push:
+    tags:
+      - 'v**'
+    branches: [ $default-branch, 'feature/#**' ]
+  pull_request:
+    branches: [ $default-branch, 'feature/#**' ]
+
+env:
+  COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+
+jobs:
+  integration:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "Check out the repo"
+        uses: "actions/checkout@v3"
+      
+      - name: "Install Node.js"
+        uses: "actions/setup-node@v3"
+        with:
+          node-version: 16.14.2
+      
+      - name: "Install dependencies"
+        run: "npm install"
+      
+      - name: "Run linter"
+        run: "npm run lint"
+      
+      - name: "Compile the contracts and generate TypeChain bindings"
+        run: "npm run generate:types"
+      
+      - name: "Test the contracts and run test coverage"
+        run: "npm run coverage"
+      
+      - name: "Generate gas report"
+        run: "npm run test:gas"
+      
+      - name: "Upload report to Coveralls"
+        uses: "coverallsapp/github-action@master"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path-to-lcov: "./coverage/lcov.info"
