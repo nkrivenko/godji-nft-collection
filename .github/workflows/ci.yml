@@ -26,10 +26,16 @@ jobs:
       - name: "Install dependencies"
         run: "npm install"
       
+      - name: "Create .env file"
+        run: |
+          touch .env
+          echo POLYGONSCAN_API_KEY=${{ secrets.POLYGONSCAN_API_KEY }} >> .env
+          echo PRIVATE_KEY=${{ secrets.PRIVATE_KEY }} >> .env
+      
       - name: "Run linter"
         run: "npm run lint"
       
-      - name: "Compile the contracts and generate TypeChain bindings"
+      - name: "Generate TypeChain bindings"
         run: "npm run generate:types"
       
       - name: "Test the contracts and run test coverage"
