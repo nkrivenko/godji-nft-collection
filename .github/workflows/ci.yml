@@ -4,9 +4,9 @@ on:
   push:
     tags:
       - 'v**'
-    branches: [ $default-branch, 'feature/#**' ]
+    branches: [ 'master', 'feature/#**' ]
   pull_request:
-    branches: [ $default-branch, 'feature/#**' ]
+    branches: [ 'master', 'feature/#**' ]
 
 env:
   COVERALLS_TOKEN: ${{ secrets.COVERALLS_TOKEN }}

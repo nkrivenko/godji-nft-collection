@@ -1,6 +1,6 @@
 # Godji Game NFT & Crowdsale
 
-![CI status](https://github.com/nkrivenko/eosio-proxy-service/actions/workflows/pipeline.yml/badge.svg)
+![CI status](https://github.com/nkrivenko/godji-nft-collection/actions/workflows/ci.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/nkrivenko/godji-nft-collection/badge.svg?branch=master)](https://coveralls.io/github/nkrivenko/godji-nft-collection?branch=master)
 [![Collection Address](https://badgen.net/badge/Collection%20Address/0xf3c959830be64aaa6b0010687e7c8eb1f906fc60/blue)](https://opensea.io/collection/godji-game-genesis-avatars)
 [![Crowdsale Address](https://badgen.net/badge/Crowdsale%20Address/0xb8a5bf69Afb311c4399AECB6419f9288D35d2595/blue)](https://polygonscan.com/address/0xb8a5bf69afb311c4399aecb6419f9288d35d2595#code)
